@@ -1,4 +1,4 @@
-package com.SEP.BusinessManagementSystem;
+package com.SEP.BusinessManagementSystem.Entity;
 import javax.persistence.*;
 
 @Entity

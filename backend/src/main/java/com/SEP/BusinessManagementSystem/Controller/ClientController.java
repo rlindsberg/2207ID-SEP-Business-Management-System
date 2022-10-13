@@ -1,6 +1,6 @@
-package com.SEP.BusinessManagementSystem;
+package com.SEP.BusinessManagementSystem.Controller;
 
-import org.springframework.stereotype.Component;
+import com.SEP.BusinessManagementSystem.Entity.Client;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -2,6 +2,7 @@ package com.SEP.BusinessManagementSystem.Entity;
 import javax.persistence.*;
 
 @Entity
+@Table
 public class Client {
     @Id
     private int id;
@@ -39,5 +40,14 @@ public class Client {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

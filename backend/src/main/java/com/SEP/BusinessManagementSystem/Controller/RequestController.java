@@ -32,6 +32,9 @@ public class RequestController {
         return ResponseEntity.ok().body(requestService.approveRequestBySCSById(id));
     }
 
+    @PutMapping("/{id}/SCS/review/reject")
+    public ResponseEntity<?> rejectRequestBySCSById(@PathVariable Long id){
+        return ResponseEntity.ok().body(requestService.rejectRequestBySCSById(id));
     }
 
     @GetMapping("/get/{id}")

@@ -43,6 +43,21 @@ public class RequestService {
 
     }
 
+    public Request rejectRequestBySCSById(Long id){
+        Optional<Request> requestOptional = requestRepository.findById(id);
+        if (requestOptional.isEmpty()){
+            throw new RuntimeException("request is not found");
+        }
+        Request request = requestOptional.get();
+
+        //set approved to false
+        request.setApprovedBySCS(false);
+        //set reviewed to true
+        request.setReviewedBySCS(true);
+
+        return requestRepository.save(request);
+
+    }
     public Request getRequestById(Long id){
         Optional<Request> requestOptional = requestRepository.findById(id);
         if (requestOptional.isEmpty()){

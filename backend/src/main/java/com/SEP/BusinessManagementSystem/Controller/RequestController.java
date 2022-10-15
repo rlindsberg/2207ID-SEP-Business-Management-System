@@ -27,6 +27,8 @@ public class RequestController {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("requests/create").toUriString());
         return ResponseEntity.created(uri).body(requestService.createNewRequest(requestDetails));
     }
+
+    // Senior Customer Service
     @PutMapping("/{id}/SCS/review/approve")
     public ResponseEntity<?> approveRequestBySCSById(@PathVariable Long id){
         return ResponseEntity.ok().body(requestService.approveRequestBySCSById(id));
@@ -36,6 +38,26 @@ public class RequestController {
     public ResponseEntity<?> rejectRequestBySCSById(@PathVariable Long id){
         return ResponseEntity.ok().body(requestService.rejectRequestBySCSById(id));
     }
+    // Financial Manager
+    @PutMapping("/{id}/FM/review/approve")
+    public ResponseEntity<?> approveRequestByFMById(@PathVariable Long id){
+        return ResponseEntity.ok().body(requestService.approveRequestByFMById(id));
+    }
+    @PutMapping("/{id}/FM/review/reject")
+    public ResponseEntity<?> rejectRequestByFMById(@PathVariable Long id){
+        return ResponseEntity.ok().body(requestService.rejectRequestByFMById(id));
+    }
+    // Admin Manager
+    @PutMapping("/{id}/AM/review/approve")
+    public ResponseEntity<?> approveRequestByAMById(@PathVariable Long id){
+        return ResponseEntity.ok().body(requestService.approveRequestByAMById(id));
+    }
+    @PutMapping("/{id}/AM/review/reject")
+    public ResponseEntity<?> rejectRequestByAMById(@PathVariable Long id){
+        return ResponseEntity.ok().body(requestService.rejectRequestByAMById(id));
+    }
+
+
 
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getRequestById(@PathVariable Long id){

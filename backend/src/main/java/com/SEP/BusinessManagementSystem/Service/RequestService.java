@@ -6,8 +6,6 @@ import com.SEP.BusinessManagementSystem.Repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +41,35 @@ public class RequestService {
 
     }
 
+    public Request approveRequestByFMById(Long id){
+        Optional<Request> requestOptional = requestRepository.findById(id);
+        if (requestOptional.isEmpty()){
+            throw new RuntimeException("request is not found");
+        }
+        Request request = requestOptional.get();
+
+        //set approved to true
+        request.setApprovedByFinancialManager(true);
+        //set reviewed to true
+        request.setReviewedByFinancialManager(true);
+        return requestRepository.save(request);
+
+    }
+    public Request approveRequestByAMById(Long id){
+        Optional<Request> requestOptional = requestRepository.findById(id);
+        if (requestOptional.isEmpty()){
+            throw new RuntimeException("request is not found");
+        }
+        Request request = requestOptional.get();
+
+        //set approved to true
+        request.setApprovedByAdminManager(true);
+        //set reviewed to true
+        request.setReviewedByAdminManager(true);
+        return requestRepository.save(request);
+
+    }
+
     public Request rejectRequestBySCSById(Long id){
         Optional<Request> requestOptional = requestRepository.findById(id);
         if (requestOptional.isEmpty()){
@@ -58,6 +85,39 @@ public class RequestService {
         return requestRepository.save(request);
 
     }
+
+    public Request rejectRequestByFMById(Long id){
+        Optional<Request> requestOptional = requestRepository.findById(id);
+        if (requestOptional.isEmpty()){
+            throw new RuntimeException("request is not found");
+        }
+        Request request = requestOptional.get();
+
+        //set approved to false
+        request.setApprovedByFinancialManager(false);
+        //set reviewed to true
+        request.setReviewedByFinancialManager(true);
+
+        return requestRepository.save(request);
+
+    }
+
+    public Request rejectRequestByAMById(Long id){
+        Optional<Request> requestOptional = requestRepository.findById(id);
+        if (requestOptional.isEmpty()){
+            throw new RuntimeException("request is not found");
+        }
+        Request request = requestOptional.get();
+
+        //set approved to false
+        request.setApprovedByAdminManager(false);
+        //set reviewed to true
+        request.setReviewedByAdminManager(true);
+
+        return requestRepository.save(request);
+
+    }
+
     public Request getRequestById(Long id){
         Optional<Request> requestOptional = requestRepository.findById(id);
         if (requestOptional.isEmpty()){

@@ -5,20 +5,20 @@ import javax.persistence.*;
 @Table
 public class Client {
     @Id
-    private int id;
+    private Long id;
     private String name;
     private String phoneNumber;
 
     public Client() {
     }
 
-    public Client(int id, String name, String phoneNumber) {
+    public Client(Long id, String name, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -30,7 +30,7 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

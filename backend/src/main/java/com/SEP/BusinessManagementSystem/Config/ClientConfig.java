@@ -14,7 +14,7 @@ public class ClientConfig {
     CommandLineRunner commandLineRunner(ClientRepository repository) {
         return args -> {
             Client ivarJacobson = new Client(
-                    1,
+                    1L,
                     "Ivar Jacobson",
                     "070 123 4567"
             );

@@ -1,14 +1,14 @@
 package com.SEP.BusinessManagementSystem.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table
 public class Request {
     @Id
+    @SequenceGenerator(name="Request_Sequence", sequenceName = "Request_Sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Request_Sequence")
     private Long id;
     private int budget;
     private LocalDate dateOfCreation;

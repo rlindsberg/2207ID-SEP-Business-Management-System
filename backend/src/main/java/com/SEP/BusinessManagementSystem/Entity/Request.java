@@ -12,6 +12,12 @@ public class Request {
     private Long id;
     private int budget;
     private LocalDate dateOfCreation;
+    private boolean isReviewedBySCS;
+    private boolean isApprovedBySCS;
+    private boolean isReviewedByFinancialManager;
+    private boolean isApprovedByFinancialManager;
+    private boolean isReviewedByAdminManager;
+    private boolean isApprovedByAdminManager;
 
     public Request() {}
     public Request(Long id, int budget, LocalDate dateOfCreation) {
@@ -44,5 +50,53 @@ public class Request {
 
     public void setDateOfCreation(LocalDate dateOfCreation) {
         this.dateOfCreation = dateOfCreation;
+    }
+
+    public boolean isReviewedBySCS() {
+        return isReviewedBySCS;
+    }
+
+    public void setReviewedBySCS(boolean reviewedBySCS) {
+        isReviewedBySCS = reviewedBySCS;
+    }
+
+    public boolean isApprovedBySCS() {
+        return isApprovedBySCS;
+    }
+
+    public void setApprovedBySCS(boolean approvedBySCS) {
+        isApprovedBySCS = approvedBySCS;
+    }
+
+    public boolean isReviewedByFinancialManager() {
+        return isReviewedByFinancialManager;
+    }
+
+    public void setReviewedByFinancialManager(boolean reviewedByFinancialManager) {
+        isReviewedByFinancialManager = reviewedByFinancialManager;
+    }
+
+    public boolean isApprovedByFinancialManager() {
+        return isApprovedByFinancialManager;
+    }
+
+    public void setApprovedByFinancialManager(boolean approvedByFinancialManager) {
+        isApprovedByFinancialManager = approvedByFinancialManager;
+    }
+
+    public boolean isReviewedByAdminManager() {
+        return isReviewedByAdminManager;
+    }
+
+    public void setReviewedByAdminManager(boolean reviewedByAdminManager) {
+        isReviewedByAdminManager = reviewedByAdminManager;
+    }
+
+    public boolean isApprovedByAdminManager() {
+        return isApprovedByAdminManager;
+    }
+
+    public void setApprovedByAdminManager(boolean approvedByAdminManager) {
+        isApprovedByAdminManager = approvedByAdminManager;
     }
 }

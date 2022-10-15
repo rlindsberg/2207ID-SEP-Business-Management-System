@@ -41,10 +41,12 @@ public class RequestService {
 
     }
 
+    // pre-condition: SCS reviews/approves the request
     public Request approveRequestByFMById(Long id){
-        Optional<Request> requestOptional = requestRepository.findById(id);
-        if (requestOptional.isEmpty()){
-            throw new RuntimeException("request is not found");
+        //Optional<Request> requestOptional = requestRepository.findById(id);
+        Optional<Request> requestOptional = requestRepository.findRequestByIdByFM(id);
+        if (!requestOptional.isPresent()){
+            throw new RuntimeException("request is not found or not approved by Senior Customer Service");
         }
         Request request = requestOptional.get();
 
@@ -55,10 +57,16 @@ public class RequestService {
         return requestRepository.save(request);
 
     }
+
+    // pre-condition: FM reviews/approves the request
     public Request approveRequestByAMById(Long id){
-        Optional<Request> requestOptional = requestRepository.findById(id);
-        if (requestOptional.isEmpty()){
-            throw new RuntimeException("request is not found");
+//        Optional<Request> requestOptional = requestRepository.findById(id);
+//        if (requestOptional.isEmpty()){
+//            throw new RuntimeException("request is not found");
+//        }
+        Optional<Request> requestOptional = requestRepository.findRequestByIdByAM(id);
+        if (!requestOptional.isPresent()){
+            throw new RuntimeException("request is not found or is not approved by Financial Manager");
         }
         Request request = requestOptional.get();
 
@@ -87,9 +95,10 @@ public class RequestService {
     }
 
     public Request rejectRequestByFMById(Long id){
-        Optional<Request> requestOptional = requestRepository.findById(id);
-        if (requestOptional.isEmpty()){
-            throw new RuntimeException("request is not found");
+        //Optional<Request> requestOptional = requestRepository.findById(id);
+        Optional<Request> requestOptional = requestRepository.findRequestByIdByFM(id);
+        if (!requestOptional.isPresent()){
+            throw new RuntimeException("request is not found or is not approved by Senior Customer Service");
         }
         Request request = requestOptional.get();
 
@@ -103,9 +112,9 @@ public class RequestService {
     }
 
     public Request rejectRequestByAMById(Long id){
-        Optional<Request> requestOptional = requestRepository.findById(id);
-        if (requestOptional.isEmpty()){
-            throw new RuntimeException("request is not found");
+        Optional<Request> requestOptional = requestRepository.findRequestByIdByAM(id);
+        if (!requestOptional.isPresent()){
+            throw new RuntimeException("request is not found or is not approved by Financial Manager");
         }
         Request request = requestOptional.get();
 

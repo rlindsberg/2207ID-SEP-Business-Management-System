@@ -27,4 +27,13 @@ public class RequestController {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("requests/create").toUriString());
         return ResponseEntity.created(uri).body(requestService.createNewRequest(requestDetails));
     }
+    @PutMapping("/{id}/SCS/review/approve")
+    public void approveRequestBySCSById(@PathVariable Long id){
+        requestService.approveRequestBySCSById(id);
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getRequestById(@PathVariable Long id){
+        return ResponseEntity.ok().body(requestService.getRequestById(id));
+    }
 }

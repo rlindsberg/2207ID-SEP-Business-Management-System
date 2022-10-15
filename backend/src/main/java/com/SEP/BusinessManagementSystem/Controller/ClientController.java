@@ -3,10 +3,7 @@ package com.SEP.BusinessManagementSystem.Controller;
 import com.SEP.BusinessManagementSystem.Entity.Client;
 import com.SEP.BusinessManagementSystem.Service.ClientService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,8 +22,9 @@ public class ClientController {
         return clientService.getAllClients();
     }
 
-    @PutMapping("/update-phone-number")
-    public ResponseEntity<?> updatePhoneNumber(Long clientID, String phoneNumber) {
-        return ResponseEntity.ok().body(clientService.updatePhoneNumber(clientID, phoneNumber));
+    @PutMapping("/update-phone-number/{id}")
+    public ResponseEntity<?> updatePhoneNumber(@PathVariable(value = "id") Long userId, @RequestBody Client clientDetails) {
+        String phoneNumberToBeUpdated = clientDetails.getPhoneNumber();
+        return ResponseEntity.ok().body(clientService.updatePhoneNumber(userId, phoneNumberToBeUpdated));
     }
 }

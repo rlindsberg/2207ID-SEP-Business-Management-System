@@ -34,7 +34,11 @@ public class RequestService {
             throw new RuntimeException("request is not found");
         }
         Request request = requestOptional.get();
+
+        //set approved to true
         request.setApprovedBySCS(true);
+        //set reviewed to true
+        request.setReviewedBySCS(true);
         return requestRepository.save(request);
 
     }

@@ -18,6 +18,7 @@ public class Request {
     private boolean isApprovedByFinancialManager;
     private boolean isReviewedByAdminManager;
     private boolean isApprovedByAdminManager;
+    private boolean isFinalized;
 
     public Request() {}
     public Request(Long id, int budget, LocalDate dateOfCreation) {
@@ -98,5 +99,13 @@ public class Request {
 
     public void setApprovedByAdminManager(boolean approvedByAdminManager) {
         isApprovedByAdminManager = approvedByAdminManager;
+    }
+
+    public boolean isFinalized() {
+        return isFinalized;
+    }
+
+    public void setFinalized(boolean finalized) {
+        isFinalized = finalized;
     }
 }

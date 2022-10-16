@@ -135,4 +135,15 @@ public class RequestService {
 
         return requestOptional.get();
     }
+
+    public Request finalizeRequestBySCSById(Long id) {
+        Optional<Request> requestOptional = requestRepository.findRequestByIdBySCS(id);
+        if (!requestOptional.isPresent()){
+            throw new RuntimeException("request is not found or has not been decided");
+        }
+        Request request = requestOptional.get();
+
+        request.setFinalized(true);
+        return requestRepository.save(request);
+    }
 }

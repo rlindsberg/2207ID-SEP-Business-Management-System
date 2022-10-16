@@ -18,13 +18,6 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
     public List<Client> getAllClients() {
-//        return List.of(
-//                new Client(
-//                        1,
-//                        "Ivar Jacobson",
-//                        "070 123 4567"
-//                )
-//        );
         return clientRepository.findAll();
     }
 

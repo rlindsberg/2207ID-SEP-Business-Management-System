@@ -13,4 +13,7 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
 
     @Query("SELECT r from Request r WHERE r.isApprovedByFinancialManager = true")
     Optional<Request> findRequestByIdByAM(Long id);
+
+    @Query("SELECT r from Request r WHERE r.isReviewedByAdminManager = true")
+    Optional<Request> findRequestByIdBySCS(Long id);
 }

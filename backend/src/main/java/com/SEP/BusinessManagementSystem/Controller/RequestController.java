@@ -38,6 +38,13 @@ public class RequestController {
     public ResponseEntity<?> rejectRequestBySCSById(@PathVariable Long id){
         return ResponseEntity.ok().body(requestService.rejectRequestBySCSById(id));
     }
+
+    @PutMapping("/{id}/SCS/review/finalize")
+    public ResponseEntity<?> finalizedRequestBySCSById(@PathVariable Long id){
+        return ResponseEntity.ok().body(requestService.finalizeRequestBySCSById(id));
+    }
+
+
     // Financial Manager
     @PutMapping("/{id}/FM/review/approve")
     public ResponseEntity<?> approveRequestByFMById(@PathVariable Long id){

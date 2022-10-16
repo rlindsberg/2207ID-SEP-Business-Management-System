@@ -22,6 +22,7 @@ public class RequestController {
     public List<Request> getAllRequests() {
         return requestService.getAllRequests();
     }
+
     @PutMapping("/create")
     public ResponseEntity<?> createNewRequest(@RequestBody Request requestDetails) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("requests/create").toUriString());

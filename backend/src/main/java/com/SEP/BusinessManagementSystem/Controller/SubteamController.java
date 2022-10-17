@@ -25,9 +25,9 @@ public class SubteamController {
     }
 
 
-    @GetMapping("/get/{Id}")
-    public ResponseEntity<?> getSubteamById(@PathVariable Long Id){
-        return ResponseEntity.ok().body(subteamService.getSubteamById(Id));
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getSubteamById(@PathVariable Long id){
+        return ResponseEntity.ok().body(subteamService.getSubteamById(id));
     }
 
 //    @GetMapping("/get-all")
@@ -37,9 +37,9 @@ public class SubteamController {
 //
 
     // do we need to create a subteam?
-    @PostMapping("/create/{Id}")
-    public ResponseEntity<?> createNewSubteam(@PathVariable Long Id, @RequestBody Subteam subteamDetails) {
+    @PostMapping("/create/{id}")
+    public ResponseEntity<?> createNewSubteam(@PathVariable Long id, @RequestBody Subteam subteamDetails) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("subteams/create").toUriString());
-        return ResponseEntity.created(uri).body(subteamService.createNewSubteam(Id, subteamDetails));
+        return ResponseEntity.created(uri).body(subteamService.createNewSubteam(id, subteamDetails));
     }
 }

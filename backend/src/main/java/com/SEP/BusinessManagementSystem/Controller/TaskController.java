@@ -21,23 +21,17 @@ public class TaskController {
     }
 
 
-    @GetMapping("/get/{Id}")
-    public ResponseEntity<?> getTaskById(@PathVariable Long Id){
-        return ResponseEntity.ok().body(taskService.getTaskById(Id));
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getTaskById(@PathVariable Long id){
+        return ResponseEntity.ok().body(taskService.getTaskById(id));
     }
 
-    @PostMapping("/create/{Id}")
-    public ResponseEntity<?> createNewTask(@PathVariable Long Id, @RequestBody Task taskDetails) {
+    @PostMapping("/create/{id}")
+    public ResponseEntity<?> createNewTask(@PathVariable Long id, @RequestBody Task taskDetails) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("tasks/create").toUriString());
-        return ResponseEntity.created(uri).body(taskService.createNewTask(Id, taskDetails));
+        return ResponseEntity.created(uri).body(taskService.createNewTask(id, taskDetails));
     }
 
-    /**
-     * The PM/SM and subteam should be able to update the task. (Due date for now)
-     * @param taskId
-     * @param taskDetails
-     * @return
-     */
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateDueDate(@PathVariable(value = "id") Long taskId, @RequestBody Task taskDetails) {
         LocalDate dueDateToBeUpdated = taskDetails.getDueDate();

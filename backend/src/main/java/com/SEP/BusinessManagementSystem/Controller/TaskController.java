@@ -1,4 +1,5 @@
 package com.SEP.BusinessManagementSystem.Controller;
+import com.SEP.BusinessManagementSystem.Entity.Request;
 import com.SEP.BusinessManagementSystem.Entity.Task;
 import com.SEP.BusinessManagementSystem.Service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,16 @@ public class TaskController {
         return ResponseEntity.ok().body(taskService.getTaskById(id));
     }
 
-    @PostMapping("/create/{id}")
-    public ResponseEntity<?> createNewTask(@PathVariable Long id, @RequestBody Task taskDetails) {
+    @PostMapping("/create")
+    public ResponseEntity<?> createNewTask(@RequestBody Task taskDetails) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("tasks/create").toUriString());
-        return ResponseEntity.created(uri).body(taskService.createNewTask(id, taskDetails));
+        return ResponseEntity.created(uri).body(taskService.createNewTask(taskDetails));
     }
+//    @PutMapping("/create")
+//    public ResponseEntity<?> createNewRequest(@RequestBody Request requestDetails) {
+//        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("requests/create").toUriString());
+//        return ResponseEntity.created(uri).body(requestService.createNewRequest(requestDetails));
+//    }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateDueDate(@PathVariable(value = "id") Long taskId, @RequestBody Task taskDetails) {

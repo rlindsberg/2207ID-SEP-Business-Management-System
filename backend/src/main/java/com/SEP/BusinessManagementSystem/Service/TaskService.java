@@ -26,9 +26,9 @@ public class TaskService {
         return taskOptional.get();
     }
 
-    public Task createNewTask(Long Id, Task taskDetails) {
-        taskDetails.setId(Id);
-        return taskRepository.save(taskDetails);
+    public Task createNewTask(Task task) {
+
+        return taskRepository.save(task);
     }
 
     public Task updateDueDate(Long taskId, LocalDate dueDate) {

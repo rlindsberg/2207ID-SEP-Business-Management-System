@@ -13,11 +13,13 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "assignee_id")
     private Subteam assignee;
-    public Task(Long id, String name, LocalDate dueDate, Subteam assignee) {
+    private String budgetComment;
+    public Task(Long id, String name, LocalDate dueDate, Subteam assignee, String budgetComment) {
         this.id = id;
         this.name = name;
         this.dueDate = dueDate;
         this.assignee = assignee;
+        this.budgetComment = budgetComment;
     }
 
     public Task() {
@@ -53,5 +55,13 @@ public class Task {
 
     public void setAssignee(Subteam assignee) {
         this.assignee = assignee;
+    }
+
+    public String getBudgetComment() {
+        return budgetComment;
+    }
+
+    public void setBudgetComment(String budgetComment) {
+        this.budgetComment = budgetComment;
     }
 }

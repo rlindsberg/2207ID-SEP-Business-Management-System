@@ -40,4 +40,14 @@ public class TaskService {
         task.setDueDate(dueDate);
         return taskRepository.save(task);
     }
+
+    public Task addComment(Long taskId, String comment) {
+        Optional<Task> taskOptional = taskRepository.findById(taskId);
+        if (taskOptional.isEmpty()) {
+            throw new RuntimeException("Task not found!");
+        }
+        Task task = taskOptional.get();
+        task.setBudgetComment(comment);
+        return taskRepository.save(task);
+    }
 }

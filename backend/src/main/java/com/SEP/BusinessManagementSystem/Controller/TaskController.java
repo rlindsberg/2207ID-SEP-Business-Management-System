@@ -43,4 +43,10 @@ public class TaskController {
         LocalDate dueDateToBeUpdated = taskDetails.getDueDate();
         return ResponseEntity.ok().body(taskService.updateDueDate(taskId, dueDateToBeUpdated));
     }
+
+    @PutMapping("/add-comment/{id}")
+    public ResponseEntity<?> addComment(@PathVariable(value = "id") Long taskId, @RequestBody Task taskDetails) {
+        String newComment = taskDetails.getBudgetComment();
+        return ResponseEntity.ok().body(taskService.addComment(taskId, newComment));
+    }
 }

@@ -7,8 +7,8 @@ import java.time.LocalDate;
 @Table
 public class Task {
     @Id
-    @SequenceGenerator(name="Request_Sequence", sequenceName = "Request_Sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Request_Sequence")
+    @SequenceGenerator(name="Task_Sequence", sequenceName = "Task_Sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Task_Sequence")
 
     private Long id;
     private String name;

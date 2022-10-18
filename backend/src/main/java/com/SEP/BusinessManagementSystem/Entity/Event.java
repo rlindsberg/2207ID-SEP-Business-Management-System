@@ -16,9 +16,7 @@ public class Event {
     private LocalTime timeOfEvent;
     private String place;
 
-    public Event() {
-
-    }
+    public Event() {}
 
     public Event(Long requestId, LocalDate dateOfEvent, String name, LocalTime timeOfEvent, String place) {
         this.id = requestId;

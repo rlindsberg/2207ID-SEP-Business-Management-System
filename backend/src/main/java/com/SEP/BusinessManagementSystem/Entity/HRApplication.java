@@ -10,24 +10,21 @@ public class HRApplication {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HRApplication_Sequence")
     private Long id;
     private String requestingDept;
-    private String contractType;
     private String jobTitle;
     private String commentFromHR;
 
     public HRApplication() {
     }
 
-    public HRApplication(String requestingDept, String contractType, String jobTitle, String commentFromHR) {
+    public HRApplication(String requestingDept, String jobTitle, String commentFromHR) {
         this.requestingDept = requestingDept;
-        this.contractType = contractType;
         this.jobTitle = jobTitle;
         this.commentFromHR = commentFromHR;
     }
 
-    public HRApplication(Long id, String requestingDept, String contractType, String jobTitle, String commentFromHR) {
+    public HRApplication(Long id, String requestingDept, String jobTitle, String commentFromHR) {
         this.id = id;
         this.requestingDept = requestingDept;
-        this.contractType = contractType;
         this.jobTitle = jobTitle;
         this.commentFromHR = commentFromHR;
     }
@@ -48,13 +45,6 @@ public class HRApplication {
         this.requestingDept = requestingDept;
     }
 
-    public String getContractType() {
-        return contractType;
-    }
-
-    public void setContractType(String contractType) {
-        this.contractType = contractType;
-    }
 
     public String getJobTitle() {
         return jobTitle;
@@ -77,7 +67,6 @@ public class HRApplication {
         return "HRApplication{" +
                 "id=" + id +
                 ", requestingDept='" + requestingDept + '\'' +
-                ", contractType='" + contractType + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
                 ", commentFromHR='" + commentFromHR + '\'' +
                 '}';

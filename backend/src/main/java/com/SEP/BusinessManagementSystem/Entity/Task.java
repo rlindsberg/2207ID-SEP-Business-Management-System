@@ -9,7 +9,6 @@ public class Task {
     @Id
     @SequenceGenerator(name="Task_Sequence", sequenceName = "Task_Sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Task_Sequence")
-
     private Long id;
     private String name;
     private LocalDate dueDate;

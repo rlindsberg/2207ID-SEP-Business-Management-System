@@ -1,4 +1,6 @@
 package com.SEP.BusinessManagementSystem.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,6 +10,25 @@ public class Client {
     private Long id;
     private String name;
     private String phoneNumber;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "clients"
+    )
+    @JsonIgnore
+    private SeniorCustomerServiceOfficer seniorCustomerServiceOfficer;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_service_officer_id")
+    private CustomerServiceOfficer responsibleCustomerServiceOfficer;
+
+    public CustomerServiceOfficer getCustomerServiceOfficer() {
+        return responsibleCustomerServiceOfficer;
+    }
+
+    public void setCustomerServiceOfficer(CustomerServiceOfficer customerServiceOfficer) {
+        this.responsibleCustomerServiceOfficer = customerServiceOfficer;
+    }
 
     public Client() {
     }

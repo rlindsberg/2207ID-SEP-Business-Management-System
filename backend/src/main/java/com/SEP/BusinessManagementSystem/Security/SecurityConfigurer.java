@@ -40,7 +40,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers("/subteams/**").hasAnyAuthority("ROLE_ADMIN")
 
                 .anyRequest().authenticated()
-                
+
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

@@ -39,7 +39,7 @@ public class CustomerServiceOfficer {
     private String password;
 
     @JsonIgnore
-    private String role = "CustomerServiceOfficer";
+    private String role = "CUSTOMER_SERVICE";
 
     // owning side, insert foreign-key column here, so we can use SeniorCustomerServiceOfficer instance attribute to reference this relationship.
     @ManyToOne

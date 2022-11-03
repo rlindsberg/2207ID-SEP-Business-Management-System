@@ -12,7 +12,7 @@ import java.net.URI;
 
 
 @RestController
-@RequestMapping("/api/v1/events")
+@RequestMapping("/events")
 public class EventController {
     private final EventService eventService;
 

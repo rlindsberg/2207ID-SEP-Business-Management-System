@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/v1/subteams")
+@RequestMapping("/subteams")
 public class SubteamController {
     private final SubteamService subteamService;
 

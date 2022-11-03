@@ -11,7 +11,7 @@ import java.net.URI;
 import java.time.LocalDate;
 
 @RestController
-@RequestMapping("/api/v1/budget-negotiation")
+@RequestMapping("/budget-negotiation")
 public class BudgetNegotiationController {
     private final BudgetNegotiationService budgetNegotiationService;
 

@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/requests")
+@RequestMapping("/requests")
 public class RequestController {
     private final RequestService requestService;
 

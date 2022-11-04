@@ -32,11 +32,6 @@ public class TaskController {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("tasks/create").toUriString());
         return ResponseEntity.created(uri).body(taskService.createNewTask(taskDetails));
     }
-//    @PutMapping("/create")
-//    public ResponseEntity<?> createNewRequest(@RequestBody Request requestDetails) {
-//        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("requests/create").toUriString());
-//        return ResponseEntity.created(uri).body(requestService.createNewRequest(requestDetails));
-//    }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateDueDate(@PathVariable(value = "id") Long taskId, @RequestBody Task taskDetails) {

@@ -39,7 +39,7 @@ public class SeniorCustomerServiceOfficer {
     private String password;
 
     @JsonIgnore
-    private String role = "CUSTOMER_SERVICE";
+    private String role = "SENIOR_CUSTOMER_SERVICE";
 
     @OneToMany(mappedBy = "seniorCustomerServiceOfficer")
     private Set<CustomerServiceOfficer> customerServiceOfficers;

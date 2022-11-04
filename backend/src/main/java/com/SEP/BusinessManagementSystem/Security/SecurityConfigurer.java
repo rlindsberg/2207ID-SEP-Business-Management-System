@@ -34,7 +34,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/clients/**").hasAnyAuthority("ROLE_CUSTOMER_SERVICE")
                 .antMatchers("/requests/create").hasAnyAuthority("ROLE_CUSTOMER_SERVICE")
-                .antMatchers("/requests/**").hasAnyAuthority("ROLE_CUSTOMER_SERVICE", "ROLE_FINANCIAL", "ROLE_ADMIN")
+                .antMatchers("/requests/**").hasAnyAuthority("ROLE_SENIOR_CUSTOMER_SERVICE", "ROLE_FINANCIAL", "ROLE_ADMIN")
                 .antMatchers("/events/**").authenticated()
                 .antMatchers("/tasks/**").authenticated()
                 .antMatchers("/subteams/**").hasAnyAuthority("ROLE_ADMIN")
